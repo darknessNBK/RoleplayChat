@@ -1,0 +1,19 @@
+name: RoleplayChat
+version: '${project.version}'
+main: me.lighty.roleplaychat.RoleplayChatPlugin
+api-version: 1.18
+authors: [ Lighty ]
+commands:
+  global:
+    description:
+  globaltoggle:
+    description:
+  local:
+    description:
+  lorespectate:
+    permission: roleplaychat.lorespectate
+    description:
+  setprefixrp:
+    permission: roleplaychat.setprefix
+  setsuffixrp:
+    permission: roleplaychat.setsuffix
