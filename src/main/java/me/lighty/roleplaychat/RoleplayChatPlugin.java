@@ -31,6 +31,7 @@ public final class RoleplayChatPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        getLogger().info(Methods.chatColor("&aEnabling Roleplay Chat..."));
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if (provider != null) luckPermsAPI = provider.getProvider();
 
@@ -62,10 +63,12 @@ public final class RoleplayChatPlugin extends JavaPlugin {
         this.getCommand("lorespectate").setExecutor(new LoreSpectateCommand());
         this.getCommand("setprefixrp").setExecutor(new SetPrefixRPCommand());
         this.getCommand("setsuffixrp").setExecutor(new SetSuffixRPCommand());
+        getLogger().info(Methods.chatColor("&aRoleplay Chat is enabled!"));
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        getLogger().info(Methods.chatColor("&cDisabling Roleplay Chat, take care!"));
     }
 }
