@@ -11,5 +11,7 @@ public class JoinListener implements Listener {
     public void playerJoinEvent(PlayerJoinEvent event) {
         RoleplayChatPlugin.getPlayerChannels().put(event.getPlayer(), Methods.getChannel("Global"));
         RoleplayChatPlugin.getPlayerGlobalToggle().put(event.getPlayer(),true);
+        RoleplayChatPlugin.getLoreSpectateMode().put(event.getPlayer(), "local");
+        RoleplayChatPlugin.getLoreSpectateToggle().put(event.getPlayer(), false);
     }
 }
