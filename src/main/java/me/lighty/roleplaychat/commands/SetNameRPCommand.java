@@ -8,15 +8,16 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class SetPrefixRPCommand implements CommandExecutor {
+public class SetNameRPCommand implements CommandExecutor {
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(!(sender instanceof Player)) return false;
-        if(!label.equalsIgnoreCase("setprefixrp")) return false;
+        if(!label.equalsIgnoreCase("setnamerp")) return false;
         Player player = (Player) sender;
 
         if(args.length < 2) {
-            player.sendMessage(Methods.chatColor("&c&lHey! &r&7Correct usage: /setprefixrp [player] [prefix]"));
+            player.sendMessage(Methods.chatColor("&c&lHey! &r&7Correct usage: /setsuffixrp [player] [name]"));
             return true;
         }
 
@@ -26,16 +27,16 @@ public class SetPrefixRPCommand implements CommandExecutor {
         for (int i = 2; i < args.length; i++) {
             builder.append(" " + args[i]);
         }
-        String prefix = builder.toString();
+        String name = builder.toString();
 
         if(target == null) {
             player.sendMessage(Methods.chatColor("&c&lHey! &r&7The given player is not online!"));
             return true;
         }
 
-        Methods.setPrefix(target, prefix);
-        player.sendMessage(Methods.chatColor("&4&l[&6&lNSB&4&l] &aYou've set the prefix of " + target.getName() + " to: " + prefix));
-        target.sendMessage(Methods.chatColor("&4&l[&6&lNSB&4&l] &aYour prefix has changed to: " + prefix));
+        Methods.setName(target, name);
+        player.sendMessage(Methods.chatColor("&4&l[&6&lNSB&4&l] &aYou've set the name of " + target.getName() + " to: " + name));
+        target.sendMessage(Methods.chatColor("&4&l[&6&lNSB&4&l] &aYour name has changed to: " + name));
         return true;
     }
 }

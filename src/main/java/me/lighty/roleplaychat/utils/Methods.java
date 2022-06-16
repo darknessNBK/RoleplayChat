@@ -77,4 +77,17 @@ public class Methods {
         return chatColor(suffix);
     }
 
+    public static void setName(Player player, String name) {
+        FileConfiguration config = RoleplayChatPlugin.getDatabase();
+        config.set("player-data." + player.getUniqueId().toString() + ".name", name);
+        RoleplayChatPlugin.getRoleplayChatPlugin().saveConfig();
+    }
+
+    public static String getName(Player player) {
+        FileConfiguration config = RoleplayChatPlugin.getDatabase();
+        String name = config.getString("player-data." + player.getUniqueId().toString() + ".name");
+        if(name == null) name = "";
+        return chatColor(name);
+    }
+
 }

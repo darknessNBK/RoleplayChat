@@ -28,7 +28,7 @@ public class ChatListener implements Listener {
             if(rank == null) rank = "";
             if(faction == null) faction = "";
 
-            String character = player.getDisplayName();
+            String character = Methods.getName(player);
             String nick = player.getName();
 
             String action = event.getMessage().substring(0, 1);
@@ -36,7 +36,7 @@ public class ChatListener implements Listener {
 
             // Emote
             if(action.equalsIgnoreCase("+")) {
-                String msg = "&5&o" + character + " &5&o" + afterAction;
+                String msg = "&5&o " + rank + "&5&o " + character + " &5&o" + afterAction;
                 Methods.sendChatInRadius(player, radius, msg);
                 player.sendMessage(Methods.chatColor(msg));
                 Methods.sendLoreSpectators(player, 100, msg);

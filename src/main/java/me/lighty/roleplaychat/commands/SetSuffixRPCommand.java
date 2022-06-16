@@ -22,7 +22,8 @@ public class SetSuffixRPCommand implements CommandExecutor {
 
         Player target = Bukkit.getPlayer(args[0]);
         StringBuilder builder = new StringBuilder();
-        for (int i = 1; i < args.length; i++) {
+        builder.append(args[1]);
+        for (int i = 2; i < args.length; i++) {
             builder.append(" " + args[i]);
         }
         String suffix = builder.toString();

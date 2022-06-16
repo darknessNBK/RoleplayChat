@@ -17,3 +17,5 @@ commands:
     permission: roleplaychat.setprefix
   setsuffixrp:
     permission: roleplaychat.setsuffix
+  setnamerp:
+    permission: roleplaychat.setname

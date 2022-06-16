@@ -63,6 +63,7 @@ public final class RoleplayChatPlugin extends JavaPlugin {
         this.getCommand("lorespectate").setExecutor(new LoreSpectateCommand());
         this.getCommand("setprefixrp").setExecutor(new SetPrefixRPCommand());
         this.getCommand("setsuffixrp").setExecutor(new SetSuffixRPCommand());
+        this.getCommand("setnamerp").setExecutor(new SetNameRPCommand());
         getLogger().info(Methods.chatColor("&aRoleplay Chat is enabled!"));
     }
 
