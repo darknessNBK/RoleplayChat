@@ -30,6 +30,7 @@ public class ChatListener implements Listener {
 
             String character = Methods.getName(player);
             if(character == null) character = "No Name";
+
             String nick = player.getName();
 
             String action = event.getMessage().substring(0, 1);
@@ -37,11 +38,9 @@ public class ChatListener implements Listener {
 
             // Emote
             if(action.equalsIgnoreCase("+")) {
-                String msg = "&5&o " + rank + "&5&o " + character + " &5&o" + afterAction;
+                String msg = "&5&o* " + rank + "&5&o " + character + " &5&o" + afterAction;
                 Methods.sendChatInRadius(player, radius, msg);
                 player.sendMessage(Methods.chatColor(msg));
-                Methods.sendLoreSpectators(player, 100, msg);
-
             }
 
             // Whisper
@@ -49,7 +48,6 @@ public class ChatListener implements Listener {
                 String msg = rank + " " + character + " " + faction + " &7&owhispers: &r\"" + afterAction + "\"";
                 Methods.sendChatInRadius(player, 6, msg);
                 player.sendMessage(Methods.chatColor(msg));
-                Methods.sendLoreSpectators(player, 100, msg);
             }
 
             // Shout
@@ -57,7 +55,6 @@ public class ChatListener implements Listener {
                 String msg = rank + " " + character + " " + faction + " &7&oshouts: &r\"" + afterAction + "\"";
                 Methods.sendChatInRadius(player, 30, msg);
                 player.sendMessage(Methods.chatColor(msg));
-                Methods.sendLoreSpectators(player, 100, msg);
             }
 
             // Chat
@@ -65,7 +62,6 @@ public class ChatListener implements Listener {
                 String msg = rank + " " + character + " " + faction + ": &r\"" + afterAction + "\"";
                 Methods.sendChatInRadius(player, 18, msg);
                 player.sendMessage(Methods.chatColor(msg));
-                Methods.sendLoreSpectators(player, 100, msg);
             }
 
             // OOC
@@ -73,7 +69,6 @@ public class ChatListener implements Listener {
                 String msg = "&7&o" + nick + ": " + event.getMessage();
                 Methods.sendChatInRadius(player, 18, msg);
                 player.sendMessage(Methods.chatColor(msg));
-                Methods.sendLoreSpectators(player, 100, msg);
             }
         }
     }

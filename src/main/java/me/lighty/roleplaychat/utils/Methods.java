@@ -39,15 +39,18 @@ public class Methods {
             if(entity instanceof Player) entity.sendMessage(chatColor(msg));
         }
         for(Player loopPlayer : Bukkit.getOnlinePlayers()) {
-            if(getLoreSpectateToggle(player) && getLoreSpectateMode(loopPlayer).equalsIgnoreCase("global") && loopPlayer.getLocation().distance(player.getLocation()) > radius) {
-                player.sendMessage(chatColor( msg));
+            if(loopPlayer != player) {
+                if(getLoreSpectateToggle(player)) {
+                    if(getLoreSpectateMode(player).equalsIgnoreCase("local")) {
+                        if(player.getLocation().distance(loopPlayer.getLocation()) < radius) {
+                            loopPlayer.sendMessage(chatColor(msg));
+                        }
+                    }
+                    if(getLoreSpectateMode(player).equalsIgnoreCase("global")) {
+                        loopPlayer.sendMessage(chatColor(msg));
+                    }
+                }
             }
-        }
-    }
-
-    public static void sendLoreSpectators(Player player, Integer radius, String msg) {
-        for(Entity entity : player.getNearbyEntities(radius, radius, radius)) {
-            if(entity instanceof Player && getLoreSpectateToggle((Player) entity) && getLoreSpectateMode((Player) entity).equalsIgnoreCase("local") ) entity.sendMessage(chatColor( msg));
         }
     }
 

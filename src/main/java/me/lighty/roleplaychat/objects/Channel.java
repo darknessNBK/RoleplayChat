@@ -25,8 +25,13 @@ public class Channel {
         if(name.equalsIgnoreCase("global")) {
             String playerName = player.getName();
             String rank = RoleplayChatPlugin.getLuckPermsAPI().getGroupManager().getGroup(playerUser.getPrimaryGroup()).getCachedData().getMetaData().getPrefix();
+            String suffix = RoleplayChatPlugin.getLuckPermsAPI().getGroupManager().getGroup(playerUser.getPrimaryGroup()).getCachedData().getMetaData().getSuffix();
             if(rank == null) rank = "";
-            formattedText = Methods.chatColor(rank + " &7" + playerName + ": &r" + text);
+            if(suffix == null) {
+                suffix = playerUser.getCachedData().getMetaData().getSuffix();
+            }
+            if(suffix == null) suffix = "";
+            formattedText = Methods.chatColor(rank + "&7" + playerName + " " + suffix + ": &r" + text);
         }
 
         return formattedText;
