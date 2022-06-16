@@ -29,7 +29,7 @@ public class ChatListener implements Listener {
             if(faction == null) faction = "";
 
             String character = Methods.getName(player);
-            if(character == null) faction = "No Name";
+            if(character == null) character = "No Name";
             String nick = player.getName();
 
             String action = event.getMessage().substring(0, 1);
